@@ -1,0 +1,342 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f1f1f1;
+    position: relative;
+    overflow: hidden; /* Yomg'irning chetiga chiqmasligi uchun */
+}
+
+/* Container for the initial "How are you?" screen */
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 50px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    z-index: 10;
+    animation: fadeIn 1.5s ease-out;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Button container styles */
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    width: 120px;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Happy button */
+.happy {
+    background-color: #4CAF50;
+}
+
+.happy:hover {
+    background-color: #45a049;
+}
+
+/* Sad button */
+.sad {
+    background-color: #f44336;
+}
+
+.sad:hover {
+    background-color: #e53935;
+}
+
+/* Glitch effect for "Site is not working" */
+.site-error {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 2rem;
+    z-index: 999;
+    text-align: center;
+    animation: glitchEffect 1.5s infinite;
+}
+
+.site-error p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+/* Glitch effect animation */
+@keyframes glitchEffect {
+    0% {
+        text-shadow: -1px 0 red, 1px 0 blue;
+    }
+    10% {
+        text-shadow: 1px 0 red, -1px 0 blue;
+    }
+    20% {
+        text-shadow: 2px 0 red, -2px 0 blue;
+    }
+    30% {
+        text-shadow: -3px 0 red, 3px 0 blue;
+    }
+    40% {
+        text-shadow: 4px 0 red, -4px 0 blue;
+    }
+    50% {
+        text-shadow: -5px 0 red, 5px 0 blue;
+    }
+    60% {
+        text-shadow: 6px 0 red, -6px 0 blue;
+    }
+    70% {
+        text-shadow: -7px 0 red, 7px 0 blue;
+    }
+    80% {
+        text-shadow: 8px 0 red, -8px 0 blue;
+    }
+    90% {
+        text-shadow: -9px 0 red, 9px 0 blue;
+    }
+    100% {
+        text-shadow: 10px 0 red, -10px 0 blue;
+    }
+}
+
+/* Love message */
+.love-message {
+    display: none;
+    font-size: 3rem;
+    color: #ff6347;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    animation: loveMessageAnimation 2s forwards;
+}
+
+/* Love message animation */
+@keyframes loveMessageAnimation {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Yomg'ir tomchilari */
+.rain {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 2px;
+    height: 20px;
+    animation: rainDrop 0.5s linear infinite;
+}
+
+/* Yomg'ir tomchisi animatsiyasi */
+@keyframes rainDrop {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Bulut animatsiyasi */
+.cloud {
+    position: absolute;
+    top: -150px; /* Bulutni yuqorida boshlash */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: cloudAnimation 5s linear infinite;
+}
+
+/* Bulutni siljitish animatsiyasi */
+@keyframes cloudAnimation {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(50vw) translateY(50px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Global fade-in effect */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* "I Love You Too" tugmasi */
+.love-you-button {
+    display: none;
+    position: absolute;
+    bottom: 30px; /* Ekran pastki qismida joylashuvi */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    z-index: 1001; /* Tugmani yuqoriga qo'yish */
+}
+
+.love-you-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Quyosh animatsiyasi */
+.sun {
+    display: none;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFD700;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+    animation: sunAnimation 3s ease-out forwards;
+    z-index: 1002; /* Quyoshni yuqoriga qo'yish */
+}
+
+/* Quyoshni ko'rsatish animatsiyasi */
+@keyframes sunAnimation {
+    0% { opacity: 0; transform: translateX(-50%) scale(0.5); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+button {
+    background-color: #ff1493;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for the button */
+button:hover {
+    background-color: #c71585;
+    transform: scale(1.1);
+}
+
+/* Black and white effect for the screen */
+.black-white-effect {
+    background-color: black;
+    color: white;
+    transition: background-color 1s, color 1s;
+}
+
+
+@keyframes heart-float {
+    0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100px) translateX(30px) scale(1.5) rotate(45deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-200px) translateX(-40px) scale(1) rotate(90deg);
+        opacity: 0;
+    }
+}
+
+/* Class to generate hearts on click */
+.heart {
+    position: absolute;
+    color: #ff1493;
+    font-size: 2em;
+    animation: heart-float 3s ease-in-out forwards;
+    pointer-events: none;
+    will-change: transform, opacity;
+    z-index: 10;
+}
+
+/* Add some randomness to heart sizes and positions */
+.heart:nth-child(odd) {
+    left: 10%;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.2s;
+}
+
+.heart:nth-child(even) {
+    left: 50%;
+    animation-duration: 3.5s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.1s;
+}
+
+.heart.large {
+    font-size: 3em;  /* Larger hearts */
+}
+
+.heart.small {
+    font-size: 1.5em; /* Smaller hearts */
+}
+
+/* Black and white effect for the screen */
+.black-white-effect {
+    background-color: black;
+    color: white;
+    transition: background-color 1s, color 1s;
+}
+
+
